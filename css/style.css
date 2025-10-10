@@ -1,0 +1,360 @@
+/* --- RESET E ESTILOS GLOBAIS --- */
+
+/* Um reset simples para remover estilos padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definindo nossas variáveis de cor para fácil manutenção */
+:root {
+    --cor-fundo: #212121;
+    --cor-texto: #F5F5F5;
+    --cor-destaque: #2ECC71; /* Nosso Verde Esperança */
+    --cor-destaque-hover: #27ae60; /* Um tom mais escuro para efeito hover */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6; /* Melhora a legibilidade */
+}
+
+/* --- CABEÇALHO (HEADER) E NAVEGAÇÃO --- */
+
+.main-header {
+    padding: 1rem 5%; /* Espaçamento interno (vertical e horizontal) */
+    border-bottom: 1px solid #444; /* Linha sutil para separar do conteúdo */
+}
+
+.main-nav {
+    display: flex; /* Habilita o Flexbox para alinhar os itens */
+    justify-content: space-between; /* Espaça os itens: logo na esquerda, resto na direita */
+    align-items: center; /* Alinha verticalmente os itens no centro */
+}
+
+.logo {
+    font-size: 1.5rem; /* Tamanho da fonte do logo */
+    font-weight: bold;
+    color: var(--cor-destaque);
+    text-decoration: none; /* Remove sublinhado do link */
+}
+
+.main-nav ul {
+    list-style: none; /* Remove as bolinhas da lista */
+    display: flex; /* Coloca os itens do menu um ao lado do outro */
+    gap: 1.5rem; /* Espaçamento entre os itens do menu */
+}
+
+.main-nav a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    transition: color 0.3s ease; /* Efeito suave na mudança de cor */
+}
+
+/* Efeito hover para o LOGO e links que não são botões */
+.logo:hover {
+    color: var(--cor-destaque-hover);
+}
+
+/* Estilo base para os links da navegação que serão botões */
+.main-nav ul a {
+    padding: 0.6rem 1.2rem; /* Espaçamento interno para criar a 'caixa' */
+    border: 2px solid var(--cor-texto); /* Borda branca, como o 'Saiba Mais' */
+    border-radius: 5px; /* Cantos arredondados */
+    text-decoration: none;
+    font-weight: 500; /* Um peso de fonte médio */
+    transition: all 0.3s ease; /* Transição suave para todos os efeitos */
+}
+
+/* Novo efeito hover para os botões da navegação */
+.main-nav ul a:hover {
+    /* Efeito de preenchimento */
+    background-color: var(--cor-destaque);
+    border-color: var(--cor-destaque); /* A borda também fica verde */
+    color: #111; /* O texto fica escuro para contrastar */
+
+    /* Efeito de 'levantar' */
+    transform: translateY(-3px);
+}
+.logo img {
+    height: 80px; /* Defina a altura que desejar para o seu logo */
+    width: auto; /* O width se ajusta automaticamente para não distorcer */
+    vertical-align: middle; /* Ajuda a alinhar a imagem com os botões do menu */
+}
+
+/* --- BOTÕES (CALL TO ACTION) --- */
+
+.cta-button {
+    background-color: var(--cor-destaque);
+    color: #111;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--cor-destaque-hover);
+    color: #111;
+}
+
+/* --- CONTEÚDO PRINCIPAL (MAIN) --- */
+
+main section {
+    padding: 4rem 5%; /* Espaçamento generoso para cada seção */
+    text-align: center; /* Centraliza o texto dentro das seções */
+}
+
+section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+section p {
+    max-width: 700px; /* Limita a largura dos parágrafos para melhor leitura */
+    margin: 0 auto 2rem auto; /* Centraliza o parágrafo e adiciona espaço abaixo */
+}
+
+.cta-button-secondary {
+    background-color: transparent;
+    color: var(--cor-destaque);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    border: 2px solid var(--cor-destaque);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.cta-button-secondary:hover {
+    background-color: var(--cor-destaque);
+    color: #111;
+}
+
+/* --- RODAPÉ (FOOTER) --- */
+
+.main-footer {
+    padding: 2rem 5%;
+    border-top: 1px solid #444; /* Linha sutil para separar do conteúdo */
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info {
+    text-align: right;
+}
+/* --- ESTILOS DA SEÇÃO HERO --- */
+
+.hero {
+    /* Layout */
+    min-height: 100vh; /* A altura mínima será 100% da altura da tela do dispositivo */
+    display: flex; /* Usamos Flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+
+    /* Imagem de Fundo e Overlay */
+    /* O truque aqui é usar um gradiente escuro por cima da imagem */
+    /* Isso garante que o texto branco fique legível */
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url('../imagens/banner.png');
+    
+    background-size: cover; /* Faz a imagem cobrir toda a área da seção */
+    background-position: center; /* Centraliza a imagem */
+    background-attachment: fixed; /* Efeito parallax sutil ao rolar */
+
+    /* Ajuste de padding para não somar com o padding geral da seção */
+    padding: 0 5%; 
+}
+
+.hero-content {
+    text-align: center;
+}
+
+/* Ajustes finos na tipografia da Hero para mais impacto */
+.hero h1 {
+    font-size: 3.5rem; /* Título um pouco maior */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto para destacar */
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+/* --- RESPONSIVIDADE (MOBILE) --- */
+/* Breakpoint para tablets e celulares (telas menores que 768px) */
+
+@media (max-width: 768px) {
+
+    /* 1. AJUSTES NO CABEÇALHO E NAVEGAÇÃO */
+    .main-nav {
+        flex-direction: column; /* Empilha os itens verticalmente */
+        gap: 1rem; /* Adiciona um espaço entre os itens empilhados */
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* Empilha os links do menu */
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    /* 2. AJUSTES NA TIPOGRAFIA PARA MELHOR LEITURA */
+    section h1, .hero h1 {
+        font-size: 2.5rem; /* Diminui o título principal */
+    }
+
+    section h2 {
+        font-size: 2rem; /* Diminui os subtítulos */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Ajusta o parágrafo da hero */
+    }
+
+    /* 3. AJUSTES NO RODAPÉ */
+    .footer-content {
+        flex-direction: column; /* Empilha o conteúdo do rodapé */
+        gap: 1rem;
+    }
+
+    .contact-info {
+        text-align: center; /* Centraliza as informações de contato */
+    }
+}
+
+/* --- ESTILOS DA PÁGINA DE PROJETOS --- */
+
+/* Cabeçalho da página (h1 e p) */
+.page-header {
+    text-align: center;
+    padding: 4rem 5%;
+}
+
+/* A Grade que contém todos os cards */
+.projects-grid {
+    display: grid;
+    /* A mágica da responsividade: */
+    /* Cria colunas de no mínimo 300px e no máximo 1 fração do espaço. */
+    /* O navegador decide quantas colunas cabem na tela. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem; /* Espaço entre os cards */
+    padding: 0 5% 4rem 5%; /* Espaçamento da grade */
+}
+
+/* O Card de Projeto Individual */
+.project-card {
+    background-color: #2c2c2c; /* Um pouco mais claro que o fundo */
+    border-radius: 8px; /* Cantos arredondados */
+    overflow: hidden; /* Garante que a imagem não vaze dos cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo do card em coluna */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Efeito de levantar o card */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagem dentro do card */
+.project-card img {
+    width: 100%;
+    height: 200px; /* Altura fixa para todas as imagens */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+}
+
+/* Conteúdo de texto do card */
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz este elemento crescer para ocupar o espaço disponível */
+}
+
+.card-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--cor-destaque);
+}
+
+.card-content p {
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Empurra o botão para o final do card */
+}
+
+
+/* --- ESTILOS DA PÁGINA DE CADASTRO (FORMULÁRIO) --- */
+
+.form-container {
+    padding: 0 5% 4rem 5%;
+}
+
+.registration-form {
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza o formulário na página */
+}
+
+.registration-form fieldset {
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.registration-form legend {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-destaque);
+    padding: 0 1rem; /* Espaçamento para não colar na borda */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block; /* Faz o label ocupar a linha inteira */
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: var(--cor-texto);
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none; /* Remove a borda padrão do navegador */
+    border-color: var(--cor-destaque); /* Muda a cor da borda ao focar */
+    box-shadow: 0 0 5px var(--cor-destaque);
+}
+
+.registration-form button[type="submit"] {
+    width: 100%;
+    font-size: 1.2rem;
+    border: none; /* O botão já tem estilo pela classe .cta-button */
+    cursor: pointer;
+}
