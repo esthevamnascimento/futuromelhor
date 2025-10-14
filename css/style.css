@@ -7,100 +7,230 @@
     box-sizing: border-box;
 }
 
-/* Definindo nossas variáveis de cor para fácil manutenção */
+/* ==========================================================================
+   1. DESIGN SYSTEM (VARIÁVEIS GLOBAIS)
+   ========================================================================== */
+
 :root {
-    --cor-fundo: #212121;
-    --cor-texto: #F5F5F5;
-    --cor-destaque: #2ECC71; /* Nosso Verde Esperança */
-    --cor-destaque-hover: #27ae60; /* Um tom mais escuro para efeito hover */
+    /* 1.1. Paleta de Cores (Versão Revisada - Mais Vibrante) */
+
+    /* Cores de Ação e Marca */
+    --cor-primaria: #FF6B00;          /* Laranja Vibrante (para CTAs e destaques principais) */
+    --cor-primaria-escura: #D95B00;   /* Laranja mais escuro para hover/active */
+    --cor-secundaria: #0052CC;       /* Azul Profundo (para links e ações secundárias) */
+    --cor-acento: #00B8D9;           /* Ciano Brilhante (para badges, tags ou detalhes especiais) */
+
+    /* Cores de Feedback */
+    --cor-sucesso: #28a745;           /* Verde padrão para sucesso */
+    --cor-erro: #dc3545;             /* Vermelho padrão para erro */
+
+  /* Cores Neutras (Base Escura com mais profundidade) */
+    --cor-fundo: #121212;
+    --cor-superficie: #1E1E1E;
+    --cor-texto-principal: #FFFFFF;  /* Branco puro (para títulos e destaques) */
+    --cor-texto-corpo: #E0E0E0;   /* Branco suave (para parágrafos e texto principal) */
+    --cor-texto-secundario: #CCCCCC;  /* Cinza mais claro (para rodapé e detalhes) */
+    --cor-borda: #333333;  /* Cinza escuro para bordas e separadores */
+
+    /* (O restante das variáveis de tipografia, espaçamento, etc., permanece o mesmo) */
+    /* 1.2. Tipografia (Escala de Fontes) */
+    --font-family-principal: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-size-xs: 0.75rem; /* 12px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-md: 1rem;     /* 16px (base) */
+    --font-size-lg: 1.25rem;  /* 20px */
+    --font-size-xl: 1.875rem; /* 30px */
+    --font-size-xxl: 3rem;    /* 48px */
+    
+    /* 1.3. Espaçamento Modular (Base 8px) */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.5rem;   /* 24px */
+    --spacing-lg: 2rem;     /* 32px */
+    --spacing-xl: 3rem;     /* 48px */
+    --spacing-xxl: 4rem;    /* 64px */
+
+    /* 1.4. Outras Variáveis Globais */
+    --border-radius: 8px;
+    --transition-fast: all 0.2s ease-in-out;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-family-principal);
     background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    line-height: 1.6; /* Melhora a legibilidade */
+    color: var(--cor-texto-corpo); /* Define a cor padrão para branco suave */
+    line-height: 1.6;
 }
 
-/* --- CABEÇALHO (HEADER) E NAVEGAÇÃO --- */
+/* Define a cor de todos os títulos para branco puro, garantindo máximo destaque */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--cor-texto-principal);
+}
+
+/* Garante que o texto de apoio (como no rodapé) use a cor secundária mais clara */
+.main-footer, .contact-info {
+    color: var(--cor-texto-secundario);
+}
+
+/* ==========================================================================
+   4. CABEÇALHO E NAVEGAÇÃO (VERSÃO REFEITA)
+   ========================================================================== */
 
 .main-header {
-    padding: 1rem 5%; /* Espaçamento interno (vertical e horizontal) */
-    border-bottom: 1px solid #444; /* Linha sutil para separar do conteúdo */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    
+    /* MAIS TRANSPARÊNCIA: diminuímos a opacidade de 0.8 para 0.6 */
+    background-color: rgba(18, 18, 18, 0.6); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    padding: var(--spacing-xs) 0; /* 8px de padding vertical para um header mais slim */
 }
 
+/* Flex container para alinhar o logo (esquerda) e o wrapper de links (direita) */
 .main-nav {
-    display: flex; /* Habilita o Flexbox para alinhar os itens */
-    justify-content: space-between; /* Espaça os itens: logo na esquerda, resto na direita */
-    align-items: center; /* Alinha verticalmente os itens no centro */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.logo {
-    font-size: 1.5rem; /* Tamanho da fonte do logo */
-    font-weight: bold;
-    color: var(--cor-destaque);
-    text-decoration: none; /* Remove sublinhado do link */
+/* Controle do tamanho do logo */
+.logo-img {
+    height: 50px; /* Defina a altura desejada para o logo */
+    width: auto;  /* A largura se ajusta automaticamente */
+    display: block; /* Remove espaços extras abaixo da imagem */
+}
+
+/* Novo wrapper para os links e botão */
+.nav-links-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md); /* Espaço entre a lista de links e o botão "Doe Agora" */
 }
 
 .main-nav ul {
-    list-style: none; /* Remove as bolinhas da lista */
-    display: flex; /* Coloca os itens do menu um ao lado do outro */
-    gap: 1.5rem; /* Espaçamento entre os itens do menu */
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-sm);
 }
 
-.main-nav a {
-    color: var(--cor-texto);
-    text-decoration: none;
-    transition: color 0.3s ease; /* Efeito suave na mudança de cor */
-}
-
-/* Efeito hover para o LOGO e links que não são botões */
-.logo:hover {
-    color: var(--cor-destaque-hover);
-}
-
-/* Estilo base para os links da navegação que serão botões */
 .main-nav ul a {
-    padding: 0.6rem 1.2rem; /* Espaçamento interno para criar a 'caixa' */
-    border: 2px solid var(--cor-texto); /* Borda branca, como o 'Saiba Mais' */
-    border-radius: 5px; /* Cantos arredondados */
+    color: var(--cor-texto-secundario);
     text-decoration: none;
-    font-weight: 500; /* Um peso de fonte médio */
-    transition: all 0.3s ease; /* Transição suave para todos os efeitos */
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    transition: var(--transition-fast);
 }
 
-/* Novo efeito hover para os botões da navegação */
 .main-nav ul a:hover {
-    /* Efeito de preenchimento */
-    background-color: var(--cor-destaque);
-    border-color: var(--cor-destaque); /* A borda também fica verde */
-    color: #111; /* O texto fica escuro para contrastar */
-
-    /* Efeito de 'levantar' */
-    transform: translateY(-3px);
-}
-.logo img {
-    height: 80px; /* Defina a altura que desejar para o seu logo */
-    width: auto; /* O width se ajusta automaticamente para não distorcer */
-    vertical-align: middle; /* Ajuda a alinhar a imagem com os botões do menu */
+    background-color: var(--cor-superficie);
+    color: var(--cor-primaria);
 }
 
 /* --- BOTÕES (CALL TO ACTION) --- */
-
-.cta-button {
-    background-color: var(--cor-destaque);
-    color: #111;
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
+/* Estilo base para todos os botões de ação */
+.button {
+    padding: var(--spacing-xs) var(--spacing-md); /* 8px 24px */
+    border-radius: var(--border-radius);
     text-decoration: none;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: var(--transition-fast);
+    border: 2px solid transparent;
+    cursor: pointer;
+    display: inline-block; /* Garante que padding e margin funcionem bem */
 }
 
-.cta-button:hover {
-    background-color: var(--cor-destaque-hover);
-    color: #111;
+/* Botão Primário (Laranja) */
+.button-primary {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-principal);
+    border-color: var(--cor-primaria);
 }
+
+.button-primary:hover {
+    background-color: var(--cor-primaria-escura);
+    border-color: var(--cor-primaria-escura);
+    transform: translateY(-2px);
+}
+
+/* --- BOTÕES (CALL TO ACTION) --- */
+/* Estilo base para todos os botões de ação */
+.button {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transition-fast);
+    border: 2px solid transparent;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center; /* Garante alinhamento do texto */
+}
+
+/* --- Botão Primário (Laranja) --- */
+.button-primary {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-principal);
+    border-color: var(--cor-primaria);
+}
+
+.button-primary:hover {
+    background-color: var(--cor-primaria-escura);
+    border-color: var(--cor-primaria-escura);
+    transform: translateY(-2px); /* Efeito de levantar */
+}
+
+/* NOVO: Estado de foco para acessibilidade */
+.button-primary:focus {
+    outline: none; /* Remove o outline padrão */
+    box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.5); /* Adiciona um 'glow' laranja */
+}
+
+/* NOVO: Estado ativo para feedback de clique */
+.button-primary:active {
+    transform: translateY(1px); /* Efeito de 'pressionado' */
+}
+
+/* NOVO: Estado desabilitado */
+.button-primary[disabled] {
+    background-color: var(--cor-borda);
+    border-color: var(--cor-borda);
+    color: var(--cor-texto-secundario);
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* --- Botão Secundário (Apenas borda) --- */
+.button-secondary {
+    background-color: transparent;
+    color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+}
+
+.button-secondary:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-principal);
+}
+
+/* NOVO: Estado de foco para acessibilidade */
+.button-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.5);
+}
+
+/* NOVO: Estado ativo para feedback de clique */
+.button-secondary:active {
+    background-color: var(--cor-primaria-escura);
+    border-color: var(--cor-primaria-escura);
+    color: var(--cor-texto-principal);
+}
+
 
 /* --- CONTEÚDO PRINCIPAL (MAIN) --- */
 
@@ -124,16 +254,6 @@ section p {
     margin: 0 auto 2rem auto; /* Centraliza o parágrafo e adiciona espaço abaixo */
 }
 
-.cta-button-secondary {
-    background-color: transparent;
-    color: var(--cor-destaque);
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    border: 2px solid var(--cor-destaque);
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
 
 .cta-button-secondary:hover {
     background-color: var(--cor-destaque);
@@ -274,6 +394,11 @@ section p {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+/* Alinhamento do botão dentro do card de projeto */
+.project-card .button {
+    align-self: center;
+}
+
 /* Imagem dentro do card */
 .project-card img {
     width: 100%;
@@ -339,22 +464,383 @@ section p {
 .form-group input {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #555;
-    border-radius: 5px;
-    background-color: #333;
-    color: var(--cor-texto);
+    border: 2px solid var(--cor-borda); /* Borda um pouco mais grossa para o feedback */
+    border-radius: var(--border-radius);
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto-principal);
     font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Estilo ao focar em QUALQUER campo: um brilho azul sutil */
+/* Estilo ao focar em QUALQUER campo: um brilho azul sutil */
 .form-group input:focus {
-    outline: none; /* Remove a borda padrão do navegador */
-    border-color: var(--cor-destaque); /* Muda a cor da borda ao focar */
-    box-shadow: 0 0 5px var(--cor-destaque);
+    outline: none;
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.5);
 }
 
-.registration-form button[type="submit"] {
+/* --- REGRAS DE VALIDAÇÃO (VERSÃO CORRIGIDA) --- */
+
+/* ESTILO DE ERRO: Aplica para todos, EXCETO para o tipo 'date' */
+.form-group input:not([type="date"]):invalid:not(:placeholder-shown) {
+    border-color: var(--cor-erro);
+}
+.form-group input:not([type="date"]):invalid:not(:placeholder-shown):focus {
+    box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.5);
+}
+
+/* ESTILO DE SUCESSO: Aplica para todos, EXCETO para o tipo 'date' */
+.form-group input:not([type="date"]):valid:not(:placeholder-shown) {
+    border-color: var(--cor-sucesso);
+}
+.form-group input:not([type="date"]):valid:not(:placeholder-shown):focus {
+    box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.5);
+}
+
+/* REGRA ESPECIAL PARA O CAMPO DE DATA: Só fica verde quando válido */
+.form-group input[type="date"]:valid {
+    border-color: var(--cor-sucesso);
+}
+.form-group input[type="date"]:valid:focus {
+    box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.5);
+}
+
+/* ==========================================================================
+   2. SISTEMA DE LAYOUT E GRID
+   ========================================================================== */
+
+/* 2.1. Container Principal */
+/* Limita a largura do conteúdo e o centraliza na página */
+.container {
     width: 100%;
-    font-size: 1.2rem;
-    border: none; /* O botão já tem estilo pela classe .cta-button */
+    max-width: 1200px; /* Largura máxima do nosso site */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md); /* 24px */
+    padding-right: var(--spacing-md); /* 24px */
+}
+
+/* 2.2. Sistema de Grid de 12 Colunas */
+.grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* Cria 12 colunas de tamanho igual */
+    gap: var(--spacing-md); /* Espaço entre as colunas */
+}
+
+/* 2.3. Classes de Coluna (Column Span) */
+/* Por padrão (mobile-first), todos os spans ocupam a largura total */
+.col-span-1, .col-span-2, .col-span-3, .col-span-4, .col-span-5, .col-span-6, 
+.col-span-7, .col-span-8, .col-span-9, .col-span-10, .col-span-11, .col-span-12 {
+    grid-column: span 12;
+}
+
+
+/* ==========================================================================
+   3. BREAKPOINTS RESPONSIVOS
+   ========================================================================== */
+/* Aqui defini 5 breakpoints e como as colunas se comportam em cada um */
+
+/* SM - Small devices (tablets em modo retrato) - 576px e acima */
+@media (min-width: 576px) {
+    .sm\:col-span-6 { grid-column: span 6; }
+}
+
+/* MD - Medium devices (tablets em modo paisagem) - 768px e acima */
+@media (min-width: 768px) {
+    .md\:col-span-3 { grid-column: span 3; }
+    .md\:col-span-4 { grid-column: span 4; }
+    .md\:col-span-6 { grid-column: span 6; }
+    .md\:col-span-8 { grid-column: span 8; }
+    .md\:col-span-12 { grid-column: span 12; }
+}
+
+/* LG - Large devices (desktops pequenos) - 992px e acima */
+@media (min-width: 992px) {
+    .lg\:col-span-3 { grid-column: span 3; }
+    .lg\:col-span-4 { grid-column: span 4; }
+    .lg\:col-span-6 { grid-column: span 6; }
+}
+
+/* XL - Extra large devices (desktops) - 1200px e acima */
+@media (min-width: 1200px) {
+    /* (Podemos adicionar regras específicas para telas maiores aqui se necessário) */
+}
+
+/* XXL - Extra extra large devices (telas muito grandes) - 1400px e acima */
+@media (min-width: 1400px) {
+    /* (Podemos adicionar regras específicas para telas muito maiores aqui se necessário) */
+}
+
+/* ==========================================================================
+   5. NAVEGAÇÃO SOFISTICADA (DROPDOWN E HAMBÚRGUER)
+   ========================================================================== */
+
+/* --- 5.1 Estilos do Dropdown (Desktop) --- */
+
+/* Contêiner do item de menu que terá um dropdown */
+.dropdown {
+    position: relative; /* Essencial para posicionar o submenu em relação a este item */
+}
+
+/* A pequena seta para baixo */
+.arrow-down {
+    font-size: 0.7em;
+    margin-left: 4px;
+    transition: transform 0.2s ease;
+}
+
+/* O menu dropdown (escondido por padrão) */
+.dropdown-menu {
+    display: block; /* IMPORTANTE: Garante que o menu seja um bloco vertical */
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content; /* Largura se ajusta ao item mais longo */
+    min-width: 200px; /* Largura mínima para consistência */
+
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    
+    list-style: none;
+    padding: var(--spacing-xs); /* 8px de espaçamento interno na caixa */
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, top 0.2s ease;
+    z-index: 1001;
+}
+
+/* Links dentro do dropdown */
+.dropdown-menu li a {
+    color: var(--cor-texto-secundario);
+    padding: var(--spacing-xs) var(--spacing-sm); /* 8px 16px */
+    display: block;
+    border-radius: 6px; /* Cantos arredondados para o efeito de hover */
+    white-space: nowrap;
+    transition: var(--transition-fast);
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-principal);
+}
+
+/* Lógica para MOSTRAR o dropdown ao passar o mouse */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    top: 110%; /* Move para a posição final */
+}
+
+/* Gira a seta para cima quando o menu está aberto */
+.dropdown:hover .arrow-down {
+    transform: rotate(180deg);
+}
+
+
+/* --- 5.2 Estilos do Menu Hambúrguer (Mobile) --- */
+
+.hamburger {
+    display: none; /* Escondido por padrão em telas grandes */
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 6px 0;
+    background-color: var(--cor-texto-principal);
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- 5.3 Media Query para Ativar o Menu Mobile --- */
+/* Usaremos 992px como nosso breakpoint principal para a navegação */
+
+@media (max-width: 992px) {
+    /* 1. Esconde os links e o botão "Doe Agora" do desktop */
+    .nav-links-wrapper {
+        position: fixed; /* Fica fixo na tela */
+        top: 66px; /* Altura exata do nosso header */
+        left: 100%; /* Começa totalmente fora da tela, à direita */
+        width: 100%;
+        height: calc(100vh - 66px); /* Ocupa o resto da altura da tela */
+        background-color: var(--cor-fundo);
+        
+        /* Layout interno do menu mobile */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-xl);
+        
+        transition: left 0.3s ease-in-out;
+    }
+
+    /* 2. Classe 'active' que o JavaScript vai adicionar para mostrar o menu */
+    .nav-links-wrapper.active {
+        left: 0; /* Traz o menu para dentro da tela */
+    }
+
+    /* 3. Reorganiza a lista de links para o modo vertical */
+    .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-lg);
+    }
+    
+    .main-nav ul a {
+        font-size: var(--font-size-lg); /* Aumenta o tamanho da fonte para toque */
+    }
+
+    /* 4. Ajusta o dropdown para o modo mobile (sem flutuar) */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        background: none;
+        box-shadow: none;
+        width: auto;
+        transform: none;
+        padding-top: var(--spacing-sm);
+    }
+
+    /* 5. Mostra o botão hambúrguer */
+    .hamburger {
+        display: block;
+    }
+
+    /* 6. Animação do hambúrguer para um "X" quando ativo */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0; /* Some com a barra do meio */
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* ==========================================================================
+   6. COMPONENTES DE INTERFACE (BADGES E TAGS)
+   ========================================================================== */
+
+/* Container para as tags dentro do card */
+.card-tags {
+    margin-bottom: var(--spacing-xs); /* 8px de espaço abaixo das tags */
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+/* Estilo base para todas as tags */
+.tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem; /* Espaçamento interno (4px 12px) */
+    font-size: var(--font-size-xs); /* 12px */
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 50rem; /* Cantos bem arredondados para efeito de pílula */
+}
+
+/* Modificadores de cor para as tags */
+.tag-blue {
+    color: #fff;
+    background-color: var(--cor-secundaria); /* Nosso azul profundo */
+}
+
+.tag-cyan {
+    color: var(--cor-fundo);
+    background-color: var(--cor-acento); /* Nosso ciano brilhante */
+}
+
+/* ==========================================================================
+   7. COMPONENTES DE FEEDBACK (MODAL)
+   ========================================================================== */
+
+/* O fundo escuro que cobre a página */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto semitransparente */
+    display: none; /* Escondido por padrão */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Garante que fique acima de tudo, até do header */
+}
+
+/* Classe 'active' que o JS usará para mostrar o modal */
+.modal-overlay.active {
+    display: flex;
+}
+
+/* A janela do modal */
+.modal {
+    background-color: var(--cor-superficie);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: slide-up 0.3s ease-out; /* Animação de entrada */
+}
+
+/* Botão de fechar (X) no canto superior direito */
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--cor-texto-secundario);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+.modal-close-btn:hover {
+    color: var(--cor-primaria);
+}
+
+.modal-header {
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--cor-borda);
+}
+.modal-header h2 {
+    color: var(--cor-primaria);
+}
+
+.modal-body {
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-footer {
+    text-align: right;
+}
+
+/* Animação Keyframes */
+@keyframes slide-up {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

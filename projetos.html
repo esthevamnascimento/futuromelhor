@@ -11,18 +11,32 @@
 <body>
 
     <header class="main-header">
-        <nav class="main-nav">
+        <nav class="main-nav container">
             <a href="index.html" class="logo">
-         <img src="imagens/logo.png" alt="Logo da ONG Futuro Melhor">
-                </a>
-            
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-            </ul>
-            
-            <a href="#" class="cta-button">Doe Agora</a>
+                <img src="./imagens/logo.png" alt="Logo Futuro Melhor" class="logo-img">
+            </a>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu de navegação">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <div class="nav-links-wrapper" id="nav-links">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li class="dropdown">
+                        <a href="projetos.html">Projetos <span class="arrow-down">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Educação para Todos</a></li>
+                            <li><a href="#">Horta Comunitária</a></li>
+                            <li><a href="#">Saúde na Comunidade</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                </ul>
+                <a href="#" class="button button-primary">Doe Agora</a>
+            </div>
         </nav>
     </header>
 
@@ -36,27 +50,37 @@
             <article class="project-card">
                 <img src="imagens/educacaoparatodos.png" alt="Crianças sorrindo em uma sala de aula.">
                 <div class="card-content">
+                    <div class="card-tags">
+                        <span class="tag tag-blue">Educação</span>
+                    </div>
                     <h2>Educação para Todos</h2>
                     <p>Nosso projeto de reforço escolar e atividades culturais para crianças em comunidades carentes, garantindo um futuro mais brilhante.</p>
-                    <a href="#" class="cta-button-secondary">Saiba Mais</a>
+                    <a href="#" class="button button-secondary">Saiba Mais</a>
                 </div>
             </article>
 
             <article class="project-card">
                 <img src="imagens/hotacomunitaria.jpg" alt="Mãos segurando uma planta jovem.">
                 <div class="card-content">
+                    <div class="card-tags">
+                        <span class="tag tag-cyan">Sustentabilidade</span>
+                        <span class="tag tag-blue">Comunidade</span>
+                    </div>
                     <h2>Horta Comunitária</h2>
                     <p>Promovemos a segurança alimentar e a sustentabilidade através da criação e manutenção de hortas orgânicas comunitárias.</p>
-                    <a href="#" class="cta-button-secondary">Saiba Mais</a>
+                    <a href="#" class="button button-secondary">Saiba Mais</a>
                 </div>
             </article>
 
             <article class="project-card">
                 <img src="imagens/saude.png" alt="Médica auscultando um paciente idoso.">
                 <div class="card-content">
+                    <div class="card-tags">
+                        <span class="tag tag-blue">Saúde</span>
+                    </div>
                     <h2>Saúde na Comunidade</h2>
                     <p>Levamos atendimento médico e odontológico básico para áreas de difícil acesso, focando na prevenção e no bem-estar de todos.</p>
-                    <a href="#" class="cta-button-secondary">Saiba Mais</a>
+                    <a href="#" class="button button-secondary">Saiba Mais</a>
                 </div>
             </article>
         </div>
@@ -71,6 +95,10 @@
             </div>
         </div>
     </footer>
-
+    
+    <script src="https://unpkg.com/imask"></script>
+    <script src="js/main.js"></script>
+    <script src="js/nav.js"></script>
+    
 </body>
 </html>

@@ -1,40 +1,37 @@
-#  Futuro Melhor - Plataforma para ONGs (Frontend)
+# Futuro Melhor - Plataforma para ONGs (Frontend)
 
-![Badge de Status](https://img.shields.io/badge/status-conclu%C3%ADdo-brightgreen)
+![Badge de Status](https://img.shields.io/badge/status-em%20desenvolvimento-orange)
 ![Badge da Licença](https://img.shields.io/badge/license-MIT-blue)
 
-Projeto de frontend para uma plataforma web de uma ONG fictícia, desenvolvido como parte de um trabalho acadêmico. O site foi construído do zero, focando em semântica HTML, design responsivo com CSS moderno e interatividade com JavaScript puro.
+Projeto de frontend para uma plataforma web de uma ONG fictícia, desenvolvido como parte de um trabalho acadêmico. O site foi construído do zero, aplicando as melhores práticas de HTML semântico, um sistema de design robusto com CSS moderno e interatividade avançada com JavaScript puro.
 
 ---
 
 ### 🖼️ Prévia do Projeto
 
+*O projeto evoluiu muito! Lembre-se de tirar um novo screenshot da página inicial e atualizar o link abaixo.*
 
-
-![Prévia do Projeto](../FuturoMelhor/imagens/previa.jpg)
+![Prévia do Projeto](httpsd/ATIVIDADES/WEB/ATIVIDADE%201/FuturoMelhor/imagens/futuro%20melhor.png)
 
 ---
 
-## ✨ Funcionalidades Principais
+## ✨ Funcionalidades e Componentes
 
-O projeto consiste em 3 páginas principais, atendendo a todos os requisitos solicitados:
+### Navegação Responsiva e Interativa
+-   **Cabeçalho Fixo (Sticky):** A navegação permanece no topo da tela durante a rolagem para fácil acesso.
+-   **Efeito de Vidro (Glassmorphism):** Um fundo semitransparente com desfoque cria um efeito de profundidade moderno.
+-   **Submenu Dropdown:** O menu de "Projetos" no desktop revela um submenu com links para projetos específicos ao passar o mouse.
+-   **Menu Hambúrguer (Mobile):** Em telas menores, a navegação se transforma em um ícone de hambúrguer que, ao ser clicado, revela um menu lateral animado.
 
--   **Página Inicial (`index.html`):**
-    -   Header e footer consistentes em todo o site.
-    -   Seção "Hero" de tela cheia e impactante com imagem de fundo.
-    -   Seções informativas sobre a missão da ONG e chamada para voluntariado.
-    -   Design totalmente responsivo, que se adapta de desktops a celulares.
+### Componentes de UI
+-   **Botões com Estados Completos:** Botões com feedback visual claro para os estados `:hover` (passar o mouse), `:focus` (navegação com teclado), `:active` (clique) e `[disabled]` (desabilitado).
+-   **Formulários com Validação Visual:** Campos do formulário fornecem feedback em tempo real, mudando a cor da borda para verde (válido) ou vermelho (inválido) usando apenas CSS, melhorando a experiência do usuário.
+-   **Cards com Badges/Tags:** Os cards de projeto agora incluem tags coloridas para categorização visual rápida (ex: Educação, Saúde).
+-   **Modal de Feedback:** Um componente modal (pop-up) interativo, acionado pelo botão "Doe Agora", para exibir mensagens de confirmação ou agradecimento ao usuário.
 
--   **Página de Projetos (`projetos.html`):**
-    -   Galeria de projetos sociais apresentados em formato de cards.
-    -   Layout em grid responsivo que ajusta o número de colunas automaticamente conforme o tamanho da tela.
-    -   Efeitos de `hover` nos cards para uma melhor interatividade.
-
--   **Página de Cadastro (`cadastro.html`):**
-    -   Formulário complexo com agrupamento lógico de campos (`fieldset`).
-    -   Utilização de diversos tipos de `input` do HTML5.
-    -   **Validação nativa** de campos obrigatórios e de formato (e-mail, etc.).
-    -   **Máscaras de input** para os campos de CPF, Telefone e CEP, implementadas com JavaScript para melhorar a experiência do usuário.
+### Layout e Estrutura
+-   **Sistema de Grid de 12 Colunas:** Foi implementado um sistema de grid responsivo customizado, permitindo a criação de layouts flexíveis e complexos que se adaptam a múltiplos tamanhos de tela.
+-   **Design System com Variáveis CSS:** Todo o projeto é baseado em um sistema de design consistente, utilizando variáveis CSS (`:root`) para a paleta de cores, escala de tipografia e sistema de espaçamento, facilitando a manutenção e garantindo a consistência visual.
 
 ---
 
@@ -42,29 +39,29 @@ O projeto consiste em 3 páginas principais, atendendo a todos os requisitos sol
 
 -   **HTML5:** Estrutura semântica para melhor acessibilidade e SEO.
 -   **CSS3:** Estilização completa, utilizando recursos modernos como:
-    -   **Flexbox** e **Grid Layout** para a construção de layouts complexos e responsivos.
-    -   **Variáveis CSS** para um tema de cores consistente e de fácil manutenção.
-    -   **Media Queries** para garantir a responsividade em múltiplos dispositivos.
+    -   **CSS Variables** para um Design System robusto.
+    -   **Grid Layout** para a estrutura principal das páginas.
+    -   **Flexbox** para alinhamentos finos de componentes.
+    -   **Media Queries** para criar 5 breakpoints responsivos.
+    -   **Pseudo-classes (`:focus`, `:valid`, etc.)** para interatividade e validação sem JavaScript.
 -   **JavaScript (ES6+):**
-    -   Manipulação do DOM para funcionalidades interativas.
+    -   Manipulação do DOM para criar componentes interativos como o menu hambúrguer e o modal de feedback.
     -   Integração com a biblioteca **[IMask.js](https://imask.js.org/)** para a aplicação das máscaras nos campos do formulário.
 
 ---
 
-## ✅ Requisitos do Projeto Atendidos
+## ✅ Requisitos Acadêmicos Atendidos
 
--   [x] **Estrutura HTML5 Semântica:** Todas as 3 páginas foram construídas com tags semânticas.
--   [x] **Páginas Obrigatórias:** `index.html`, `projetos.html` e `cadastro.html` foram implementadas.
--   [x] **Formulários Complexos e Interativos:** O formulário em `cadastro.html` atende a todos os requisitos.
-    -   [x] Utiliza tipos de input HTML5.
-    -   [x] Implementa validação nativa com atributos.
-    -   [x] Utiliza agrupamento lógico (`fieldset` e `legend`).
-    -   [x] Aplica máscaras de input para CPF, telefone e CEP.
--   [x] **Código Fonte Completo:** Repositório contém todos os arquivos necessários.
-    -   [x] Estrutura de pastas organizada (`css`, `js`, `imagens`).
-    -   [x] Arquivos HTML validados no W3C Validator.
--   [x] **Responsividade:** O design se adapta a diferentes tamanhos de tela.
--   [x] **Entrega:** Projeto entregue em um link público do GitHub.
+### Entrega I – Estrutura e Fundamentos
+-   [x] Estrutura HTML5 Semântica com 3 páginas.
+-   [x] Formulário complexo com validação nativa e máscaras de input.
+-   [x] Código fonte organizado e validado no W3C.
+
+### Entrega II – Estilização e Leiautes
+-   [x] **Sistema de Design:** Desenvolvido com variáveis CSS, paleta de cores (+8), hierarquia de tipografia (+5 tamanhos) e espaçamento modular.
+-   [x] **Leiautes Responsivos com Flexbox e Grid:** Implementado leiaute com CSS Grid, Flexbox para componentes, 5 breakpoints e sistema de 12 colunas customizado.
+-   [x] **Navegação Sofisticada e Interativa:** Criado menu principal responsivo com submenu dropdown e menu hambúrguer para mobile.
+-   [x] **Componentes de Interface:** Desenvolvidos cards responsivos, botões com todos os estados visuais, formulários com validação visual, modal de feedback e sistema de badges/tags.
 
 ---
 
@@ -86,13 +83,4 @@ Como este é um projeto de frontend estático, não há necessidade de instalaç
 
 ## 👨‍💻 Autor
 
-Desenvolvido por **Esthevam Alvico**.
-
--   LinkedIn: [`Esthevam Alvico`](www.linkedin.com/in/esthevam-alvico-25518728b)
--   GitHub: [`@esthevamnascimento`](https://github.com/esthevamnascimento)
-
----
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Desenvolvido por **Esthevam Nascimento**.
