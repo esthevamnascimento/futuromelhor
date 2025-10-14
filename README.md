@@ -9,11 +9,9 @@ Projeto de frontend para uma plataforma web de uma ONG fictícia, desenvolvido c
 
 ### 🖼️ Prévia do Projeto
 
-*O projeto evoluiu muito! Lembre-se de tirar um novo screenshot da página inicial e atualizar o link abaixo.*
-
-*Fase inicial*
+**Fase inicial**
 ![Prévia do Projeto 1](/imagens/previa.jpg)
-*Fase Atual*
+**Fase Atual**
 ![Prévia do Projeto 2](/imagens/previa2.jpg)
 ---
 
