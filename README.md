@@ -11,8 +11,8 @@ Projeto de frontend para uma plataforma web de uma ONG fictícia, desenvolvido c
 
 *O projeto evoluiu muito! Lembre-se de tirar um novo screenshot da página inicial e atualizar o link abaixo.*
 
-![Prévia do Projeto](httpsd/ATIVIDADES/WEB/ATIVIDADE%201/FuturoMelhor/imagens/futuro%20melhor.png)
-
+![Prévia do Projeto 1](/imagens/previa.jpg)
+![Prévia do Projeto 2](/imagens/previa2.jpg)
 ---
 
 ## ✨ Funcionalidades e Componentes
