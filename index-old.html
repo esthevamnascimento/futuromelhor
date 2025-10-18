@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuro Melhor - Transformando Vidas, Construindo Futuros</title>
+    <meta name="description" content="Conheça a ONG Futuro Melhor e faça parte da nossa causa para construir um futuro mais justo e solidário para todos.">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="main-nav container">
+            <a href="index.html" class="logo">
+                <img src="./imagens/logo.png" alt="Logo Futuro Melhor" class="logo-img">
+            </a>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu de navegação">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <div class="nav-links-wrapper" id="nav-links">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li class="dropdown">
+                        <a href="projetos.html">Projetos <span class="arrow-down">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Educação para Todos</a></li>
+                            <li><a href="#">Horta Comunitária</a></li>
+                            <li><a href="#">Saúde na Comunidade</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                </ul>
+                <a href="#/doacao" class="button button-primary">Doe Agora</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Construindo um Futuro Melhor, Hoje.</h1>
+                <p>Junte-se a nós e faça parte da mudança que nossa comunidade precisa.</p>
+                <a href="projetos.html" class="button button-secondary">Conheça Nossos Projetos</a>
+            </div>
+        </section>
+
+        <div class="container grid-12">
+            <div class="about-us col-span-12 md:col-span-6">
+                <h2>Nossa Missão</h2>
+                <p>A Futuro Melhor é uma organização dedicada a criar oportunidades e promover o desenvolvimento social através de projetos de educação, saúde e sustentabilidade. Acreditamos no poder da colaboração para gerar impacto duradouro.</p>
+            </div>
+
+            <div class="call-to-action col-span-12 md:col-span-6">
+                <h2>Seja um Voluntário</h2>
+                <p>Sua ajuda é fundamental para continuarmos nosso trabalho. Descubra como você pode contribuir com seu tempo e talento.</p>
+                <a href="cadastro.html" class="button button-secondary">Quero ser Voluntário</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Futuro Melhor. Todos os direitos reservados.</p>
+            <div class="contact-info">
+                <p>Email: contato@futuro-melhor.org</p>
+                <p>Telefone: (11) 98765-4321</p>
+            </div>
+        </div>
+    </footer>
+    <div class="modal-overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Obrigado por seu Apoio!</h2>
+            </div>
+            <div class="modal-body">
+                <p>Sua intenção de doar faz toda a diferença para continuarmos nosso trabalho. Juntos, estamos construindo um futuro melhor.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="button button-primary close-modal-btn">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+<script src="https://unpkg.com/imask"></script>
+    <script src="js/main.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/modal.js"></script>
+    
+    <script src="js/app.js" type="module"></script>
+
+</body>
+</html>

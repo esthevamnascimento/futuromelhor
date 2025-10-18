@@ -473,21 +473,42 @@ section p {
 }
 
 /* Estilo ao focar em QUALQUER campo: um brilho azul sutil */
-/* Estilo ao focar em QUALQUER campo: um brilho azul sutil */
 .form-group input:focus {
     outline: none;
     border-color: var(--cor-secundaria);
     box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.5);
 }
 
-/* --- REGRAS DE VALIDAÇÃO (VERSÃO CORRIGIDA) --- */
+/* --- REGRAS DE VALIDAÇÃO (CONTROLADAS POR JS) --- */
 
-/* ESTILO DE ERRO: Aplica para todos, EXCETO para o tipo 'date' */
-.form-group input:not([type="date"]):invalid:not(:placeholder-shown) {
-    border-color: var(--cor-erro);
+/* Esconde todas as mensagens de erro por padrão */
+.error-message {
+    color: var(--cor-erro);
+    font-size: var(--font-size-sm);
+    display: none;
+    margin-top: var(--spacing-xs);
 }
-.form-group input:not([type="date"]):invalid:not(:placeholder-shown):focus {
-    box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.5);
+
+/* Quando o JS adicionar a classe 'invalid' ao PAI... */
+.form-group.invalid .error-message {
+    display: block; /* Mostra a mensagem de erro */
+}
+
+.form-group.invalid input {
+    border-color: var(--cor-erro); /* Deixa a borda do input vermelha */
+}
+
+.form-group.invalid input:focus {
+    box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.5); /* Brilho vermelho */
+}
+
+/* Quando o JS adicionar a classe 'valid' ao PAI... */
+.form-group.valid input {
+    border-color: var(--cor-sucesso); /* Deixa a borda do input verde */
+}
+
+.form-group.valid input:focus {
+    box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.5); /* Brilho verde */
 }
 
 /* ESTILO DE SUCESSO: Aplica para todos, EXCETO para o tipo 'date' */
@@ -843,4 +864,20 @@ section p {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+/* ==========================================================================
+   8. VALIDAÇÃO DE FORMULÁRIO COM JS
+   ========================================================================== */
+
+.error-message {
+    color: var(--cor-erro);
+    font-size: var(--font-size-sm);
+    display: none; /* Escondido por padrão */
+    margin-top: var(--spacing-xs);
+}
+
+/* Quando um input estiver inválido, mostra a mensagem de erro que é 'irmã' dele */
+.form-group input:invalid + .error-message {
+    display: block;
 }
