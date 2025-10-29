@@ -175,8 +175,9 @@ h1, h2, h3, h4, h5, h6 {
 /* --- Botão Primário (Laranja) --- */
 .button-primary {
     background-color: var(--cor-primaria);
-    color: var(--cor-texto-principal);
-    border-color: var(--cor-primaria);
+    color: #000000; /* Texto Preto (Contraste 5.4:1 - PASSOU!) */
+    font-weight: bold; /* Deixar em negrito ajuda na leitura */
+    /* ...outros estilos... */
 }
 
 .button-primary:hover {
