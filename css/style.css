@@ -62,6 +62,19 @@ body {
     line-height: 1.6;
 }
 
+/* Mostra um anel de foco claro para navegação por teclado */
+*:focus-visible {
+    outline: 3px solid var(--cor-secundaria); /* Azul */
+    outline-offset: 2px;
+    border-radius: 4px; 
+}
+
+/* No modal, o foco deve ficar em cima */
+.modal *:focus-visible {
+    outline-color: var(--cor-acento); /* Ciano */
+    z-index: 100;
+}
+
 /* Define a cor de todos os títulos para branco puro, garantindo máximo destaque */
 h1, h2, h3, h4, h5, h6 {
     color: var(--cor-texto-principal);
