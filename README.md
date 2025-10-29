@@ -6,7 +6,8 @@ Projeto frontend completo para uma plataforma web de uma ONG fictícia ("Futuro 
 
 --- 
 
-**🚀 [Ver Projeto Online](https://esthevamnascimento.github.io/futuromelhor) 🚀** --- 
+**🚀 [Ver Projeto Online](https://esthevamnascimento.github.io/futuromelhor) 🚀**
+--- 
 
 ### 🖼️ Prévia do Projeto
 
