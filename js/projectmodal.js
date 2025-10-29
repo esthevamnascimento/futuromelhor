@@ -30,14 +30,14 @@ function openProjectModal(projectId) {
     if (projectData) {
         modalTitleElement.textContent = projectData.title; // Popula título
         modalBodyElement.innerHTML = projectData.fullDescription; // Popula corpo
-        projectModalOverlay.classList.add('active'); // Abre o modal
+        window.openGlobalModal('project-detail-modal'); // Abre o modal
         console.log("[ProjectModal] Modal populado e aberto via openProjectModal.");
     } else {
         console.error(`[ProjectModal] Erro: Dados não encontrados para ID ${projectId} ao tentar abrir.`);
         // Mostra um erro genérico no modal
         modalTitleElement.textContent = "Erro";
         modalBodyElement.innerHTML = "<p>Desculpe, detalhes indisponíveis.</p>";
-        projectModalOverlay.classList.add('active');
+        window.openGlobalModal('project-detail-modal');
     }
 }
 

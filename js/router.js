@@ -3,7 +3,7 @@
    - Decide qual template carregar e renderiza no #app-root.
    - Chama scripts de inicialização pós-renderização.
    ========================================================================== */
-
+   
 // 1. Importa os templates das páginas
 import { homeTemplate, projectsTemplate, contactTemplate, donationTemplate } from './templates.js';
 
@@ -63,6 +63,13 @@ export const renderPage = () => {
     }
 
     console.log("[Router] renderPage FINALIZOU");
+
+    // Foco para acessibilidade
+const mainContent = document.getElementById('app-root');
+if(mainContent) {
+    mainContent.focus(); 
+}
+console.log("[Router] Foco movido para #app-root.");
 };
 
 /**
