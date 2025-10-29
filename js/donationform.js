@@ -49,7 +49,7 @@ export function initializeDonationForm() {
         if (feedbackModal) {
             // Pequeno delay para dar tempo de ver os confetes antes do modal
             setTimeout(() => {
-                feedbackModal.classList.add('active');
+                window.openGlobalModal('feedback-modal');
             }, 300); // 300 milissegundos
         }
 

@@ -9,17 +9,17 @@
     </head>
 <body>
 
-    <header class="main-header">
-        <nav class="main-nav container">
+    <header class="main-header" role="banner">
+        <nav class="main-nav container" role="navigation" aria-label="Navegação principal">
             <a href="#/" class="logo">
                 <img src="./imagens/logo.png" alt="Logo Futuro Melhor" class="logo-img">
             </a>
-            <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu de navegação">
+            <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-links">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <div class="nav-links-wrapper" id="nav-links">
+            <div class="nav-links-wrapper" id="nav-links" aria-hidden="true">
                 <ul>
                     <li><a href="#/">Início</a></li>
                     <li class="dropdown">
@@ -37,10 +37,10 @@
         </nav>
     </header>
 
-    <main id="app-root">
+    <main id="app-root" role="main" tabindex="-1">
         </main>
 
-    <footer class="main-footer">
+    <footer class="main-footer" role="contentinfo">
         <div class="footer-content">
             <p>&copy; 2025 Futuro Melhor. Todos os direitos reservados.</p>
             <div class="contact-info">
@@ -50,15 +50,15 @@
         </div>
     </footer>
 
-    <div class="modal-overlay" id="feedback-modal">
+    <div class="modal-overlay" id="feedback-modal" role="dialog" aria-modal="true" aria-labelledby="feedback-modal-title">
         <div class="modal">
-             <div class="modal-header"><h2>Obrigado!</h2></div>
+             <div class="modal-header"><h2 id="feedback-modal-title">Obrigado!</h2></div>
              <div class="modal-body"><p>Sua ação foi registrada com sucesso.</p></div>
              <div class="modal-footer"><button class="button button-primary close-modal-btn">Fechar</button></div>
         </div>
     </div>
 
-    <div class="modal-overlay" id="project-detail-modal">
+    <div class="modal-overlay" id="project-detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
         <div class="modal">
             <button class="modal-close-btn close-modal-btn" aria-label="Fechar modal">&times;</button>
             <div class="modal-header"><h2 id="modal-project-title">Carregando...</h2></div>
@@ -68,7 +68,12 @@
     </div>
 
     <script src="https://unpkg.com/imask"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script> <script src="js/nav.js"></script>   <script src="js/modal.js"></script> <script src="js/app.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <script src="js/nav.js"></script>
+    <script src="js/modal.js"></script>
+
+    <script src="js/app.js" type="module"></script>
 
 </body>
 </html>
