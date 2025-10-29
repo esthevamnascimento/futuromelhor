@@ -4,14 +4,15 @@
 ![Badge da Licença](https://img.shields.io/badge/license-MIT-blue)
 Projeto frontend completo para uma plataforma web de uma ONG fictícia ("Futuro Melhor"), desenvolvido como parte de um trabalho acadêmico. O projeto evoluiu de um site estático para uma **Single Page Application (SPA)** dinâmica, interativa, acessível (WCAG 2.1 AA) e otimizada, construída com JavaScript puro (ES6+ Módulos), HTML5 semântico e CSS3 moderno.
 
----
+--- 
+
+**🚀 [Ver Projeto Online](https://esthevamnascimento.github.io/futuromelhor) 🚀** --- 
 
 ### 🖼️ Prévia do Projeto
 
 
 ![Prévia do Projeto](./imagens/fasefinal.png)
 
-![Site Pages](https://esthevamnascimento.github.io/futuromelhor)
 
 ---
 
